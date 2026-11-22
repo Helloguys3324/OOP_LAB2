@@ -1,0 +1,22 @@
+# Wednesday custom test file: edge cases not covered by Monday/Tuesday.
+MANAGER Diana
+MANAGER ExtraArg ManagerTwo
+
+# Invalid dimensions and duplicate display
+DISPLAY BadMonitor -1920 1080 90.0
+DISPLAY ZeroPpi 1920 1080 0
+DISPLAY CloneA 2560 1440 108.8
+DISPLAY CloneB 2560 1440 108.8
+DISPLAY CloneA 2560 1440 108.8
+
+# Comparing identical specs and comparing a display with itself
+COMPARE CloneA CloneB
+COMPARE CloneA CloneA
+
+# Manager with only 1 display assigned -> WARN on ASSIST
+ASSIGN CloneA Diana
+ASSIST Diana
+
+# Assigning second display and assisting normally
+ASSIGN CloneB Diana
+ASSIST Diana
